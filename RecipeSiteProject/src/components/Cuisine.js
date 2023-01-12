@@ -1,21 +1,20 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { Card, Col, Button } from 'antd'
+import { Card, Col, Divider } from 'antd'
 import axios from "axios"
-import logo from "../assets/singe.png"
+
 
 
 const Cuisine = () => {
 
     const [myCuisine, setMyCuisine] = useState([])
     let {cuisine} = useParams()
-    
+
     const fetchRecipe = async () => {
         await axios
-        .get(`https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&apiKey=490fe2e32f5343e59ee2aac0a4560519`)
+        .get(`https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&apiKey=322a77ead7154f77b5db10207568287d`)
         .then(res => {
             setMyCuisine(res.data.results)
-            console.log(res.data.results)
            })
         .catch(err => console.log(err))
       }
@@ -24,8 +23,11 @@ const Cuisine = () => {
         fetchRecipe();
       }, [])
 
+      const gastro = cuisine.charAt(0).toUpperCase() + cuisine.slice(1);
+
     return(
       <div className="recipes">
+      <Divider><h1>{gastro} Recipes</h1></Divider>
       {myCuisine.map(elem => {
     return(
       <>

@@ -1,0 +1,42 @@
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Card, Col, Divider } from "antd";
+import axios from "axios";
+
+const Recipes = () => {
+  const [recipeData, setRecipeData] = useState([]);
+  let { id } = useParams();
+
+  const fetchRecipe = async () => {
+    await axios
+      .get(
+        `https://api.spoonacular.com/recipes/${id}/information?apiKey=322a77ead7154f77b5db10207568287d&number=100`
+      )
+      .then((res) => {
+        setRecipeData(res.data.results);
+        console.log(res.data.results);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    fetchRecipe();
+  }, []);
+
+  return (
+    <div>
+      {recipeData.map((e, id) => {
+        return (
+          <div key={id}>
+            <h2>{e.title}</h2>
+            <p>{e.instructions}</p>
+            <p>Cooking time: {e.cookingMinutes} minutes</p>
+            <p>Preparation time: {e.preparationMinutes} minutes</p>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default Recipes;

@@ -11,6 +11,7 @@ import Appetizer from "./components/Appetizer"
 import Main from "./components/Main"; 
 import Dessert from "./components/Dessert"; 
 import Drink from  "./components/Drink"
+import Recipes from "./components/Recipes";
 
 function App() {
   return (
@@ -18,8 +19,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path="/diet" element={<Diet />}/>
         <Route path="/:cuisine" element={<Cuisine/>}/>
+        <Route path="/recipe/:id" element={<Recipes />}></Route>
+        <Route path="/diet" element={<Diet />}/>
         <Route path="/breakfast" element={<Breakfast />}/>
         <Route path="/ingredients" element={<Ingredients/>}/>
         <Route path="/appetizer" element={<Appetizer/>}/>
