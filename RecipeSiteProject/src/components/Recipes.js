@@ -12,7 +12,7 @@ const Recipes = () => {
   const fetchRecipe = async () => {
     await axios
       .get(
-        `https://api.spoonacular.com/recipes/${id}/information?apiKey=54ed86b4efdf43e2a6379bc95b77de5b&number=99`
+        `https://api.spoonacular.com/recipes/${id}/information?apiKey=157334a5c03a4df5843d2ce012726a37&number=99`
       )
       .then((res) => {
         setRecipeData(res.data);
@@ -40,12 +40,10 @@ const Recipes = () => {
             />
             <img
               style={{
-                border: "0.5px solid",
-                borderRadius: "30px",
                 height: "400px",
                 width: "400px",
               }}
-              src={`https://api.spoonacular.com/recipes/${id}/ingredientWidget.png?apiKey=54ed86b4efdf43e2a6379bc95b77de5b&number=99`}
+              src={`https://api.spoonacular.com/recipes/${id}/ingredientWidget.png?apiKey=157334a5c03a4df5843d2ce012726a37&number=99`}
               alt="ingredients"
             />
           </div>

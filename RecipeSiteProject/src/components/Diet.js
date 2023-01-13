@@ -18,7 +18,7 @@ const Diet = () => {
 
     const fetchDiet = async () => {
         await axios
-        .get(`https://api.spoonacular.com/recipes/complexSearch?diet=${diet1},${diet2},${diet3},${diet4},${diet5}&apiKey=54ed86b4efdf43e2a6379bc95b77de5b&number=99`)
+        .get(`https://api.spoonacular.com/recipes/complexSearch?diet=${diet1},${diet2},${diet3},${diet4},${diet5}&apiKey=157334a5c03a4df5843d2ce012726a37&number=99`)
         .then(res => {
             setMyDiet(res.data.results)
             console.log(res.data.results)
