@@ -32,7 +32,7 @@ const Home = () => {
 
     const fetchRecipe = async () => {
         await axios
-        .get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=d358d93220c74c95902c7672f9ebfdc1&number=10`)
+        .get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=54ed86b4efdf43e2a6379bc95b77de5b&number=99`)
         .then(res => {
             setData(res.data.results)
             setFilteredData(res.data.results)

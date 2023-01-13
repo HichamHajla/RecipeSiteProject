@@ -7,9 +7,9 @@
 
 .recipeID{
   padding: 5%;
-  background-image: url(https://img.freepik.com/photos-gratuite/fond-textures-sable_74190-1330.jpg?w=1480&t=st=1673528229~exp=1673528829~hmac=5053fadea00c5a7d9f6d084aecf05bb3c7b69e1ec33983b60a981dd730c471b0);
+  /*background-image: url(https://img.freepik.com/photos-gratuite/fond-textures-sable_74190-1330.jpg?w=1480&t=st=1673528229~exp=1673528829~hmac=5053fadea00c5a7d9f6d084aecf05bb3c7b69e1ec33983b60a981dd730c471b0);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;*/
 }
 .ingredAndPhoto{
   display: flex;
@@ -28,6 +28,7 @@
   font-size: 1.5em;
   font-weight: bolder;
   text-decoration: none;
+  text-shadow: 3px 5px 5px #A695A5;
 }
 
 

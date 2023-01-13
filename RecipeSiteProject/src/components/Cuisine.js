@@ -13,7 +13,7 @@ const Cuisine = () => {
 
     const fetchRecipe = async () => {
         await axios
-        .get(`https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&apiKey=d358d93220c74c95902c7672f9ebfdc1`)
+        .get(`https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&apiKey=54ed86b4efdf43e2a6379bc95b77de5b`)
         .then(res => {
             setMyCuisine(res.data.results)
            })

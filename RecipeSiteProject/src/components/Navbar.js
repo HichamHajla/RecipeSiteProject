@@ -11,8 +11,8 @@ const Navbar = () => {
         <Link style={{textDecoration:"none", color:"black"}} to="/"><h3 className="title">HD Kitchen</h3></Link>
         <ul className="links">
           <NavLink className="nlink"  to="/">Home</NavLink>
-          <NavLink className="nlink"  to="/ingredients">Inregients</NavLink>
           <NavLink className="nlink"  to="/diet">Diet</NavLink>
+          <NavLink className="nlink"  to="/ingredients">Inregients</NavLink>
         </ul>
       </div>
       <div className="nav2">

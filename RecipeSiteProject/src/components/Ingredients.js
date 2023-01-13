@@ -11,7 +11,7 @@ const Ingredients = () => {
     const fetchIng = async () => {
         await axios
           .get(
-            `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${searchTerm}&apiKey=d358d93220c74c95902c7672f9ebfdc1&number=10`
+            `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${searchTerm}&apiKey=54ed86b4efdf43e2a6379bc95b77de5b&number=99`
           )
           .then((res) => {
             setIng(res.data);
