@@ -2,7 +2,7 @@
 const Dessert = () => {
     return(
         <>
-        <h1>c'est Dessert</h1>
+        <h1>Desserts</h1>
 
         </>
     )

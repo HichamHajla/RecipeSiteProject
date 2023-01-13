@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { Card, Col, Divider } from 'antd'
+import { Link } from "react-router-dom"
 import axios from "axios"
 
 
@@ -12,7 +13,7 @@ const Cuisine = () => {
 
     const fetchRecipe = async () => {
         await axios
-        .get(`https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&apiKey=322a77ead7154f77b5db10207568287d`)
+        .get(`https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&apiKey=d358d93220c74c95902c7672f9ebfdc1`)
         .then(res => {
             setMyCuisine(res.data.results)
            })
@@ -32,11 +33,13 @@ const Cuisine = () => {
     return(
       <>
         <Col>
+        <Link to={`/recipe/${elem.id}`}>
             <Card 
             title={elem.title}
             style={{ width: 450, height: 300, margin: 10, textAlign:"center" }}>
             <img className="picRecipe" src={elem.image} height={200} alt="food" />
             </Card>
+            </Link>
         </Col>
       </>
     )

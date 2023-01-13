@@ -1,33 +1,35 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+*{
+  font-family: Poppins;
 }
+/*font-family: DejaVu Sans Mono, monospace*/	
 
-.navbar{
-  display: flex;
-  flex-direction: column;
+
+.recipeID{
+  padding: 5%;
+  background-image: url(https://img.freepik.com/photos-gratuite/fond-textures-sable_74190-1330.jpg?w=1480&t=st=1673528229~exp=1673528829~hmac=5053fadea00c5a7d9f6d084aecf05bb3c7b69e1ec33983b60a981dd730c471b0);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
-.links{
+.ingredAndPhoto{
   display: flex;
   justify-content: space-around;
+  margin-bottom: 50px;
+}
+
+.diets{
+  display: flex;
+  justify-content: center;
 }
 
 .title{
-  font-size: 3em;
-  font-family: 'Courier New', Courier, monospace;
+  margin-top: 6%;
+  padding-right: 20%;
+  font-size: 1.5em;
   font-weight: bolder;
+  text-decoration: none;
 }
 
-.nav1{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  background-color: rosybrown;
-}
-.nav2{
-  display: flex;
-  flex-direction: row;
-}
 
 .recipes{
   display: flex;
@@ -42,7 +44,7 @@
   justify-content: space-between;
   width: 90%;
   height: 60%;
-  margin-top: 3%;
+  margin: auto;
 }
 
 .rond{
@@ -50,10 +52,49 @@
   margin:0.5%;
 }
 
+.rond:hover{
+  transform: scale(1.2);
+}
+
 .picRecipe{
+  border-radius: 5%;
 }
  
+.rowDiet{
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.Footer{
+  font-size: 10px;
+  width: 100vw;
+  height: 250px;
+  display: flex;
+  justify-content: space-around;
+  color : white;
+  background-color : rgb(25,33,41);
+ 
+}
 
+.infoFooter{
+  display: flex;
+  text-align : center;
+  padding : 30px 100px 30px 100px;
+  margin : 0 0 25px 0;
+  justify-content : space-between;
+  flex-direction: column;
+  align-items : center
+}
 
+.map-frame{
+  margin-top: 5%;
+  height: 170px;
+  width : 800px;
+}
 
+.footer a, ul{
+  text-decoration : none;
+  list-style-type : none;
+  padding : 0;
+  font-size: larger;
+}

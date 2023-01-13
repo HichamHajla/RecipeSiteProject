@@ -11,7 +11,8 @@ import Appetizer from "./components/Appetizer"
 import Main from "./components/Main"; 
 import Dessert from "./components/Dessert"; 
 import Drink from  "./components/Drink"
-import Recipes from "./components/Recipes";
+import Recipes from "./components/Recipes"
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/:cuisine" element={<Cuisine/>}/>
-        <Route path="/recipe/:id" element={<Recipes />}></Route>
+        <Route path="/recipe/:id" element={<Recipes/>}/>
         <Route path="/diet" element={<Diet />}/>
         <Route path="/breakfast" element={<Breakfast />}/>
         <Route path="/ingredients" element={<Ingredients/>}/>
@@ -29,7 +30,7 @@ function App() {
         <Route path="/dessert" element={<Dessert/>}/>
         <Route path="/drink" element={<Drink/>}/>
       </Routes>
-      
+      <Footer/>
     </div>
   );
 }

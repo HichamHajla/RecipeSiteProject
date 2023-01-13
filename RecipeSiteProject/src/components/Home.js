@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Divider, Input} from 'antd';
 import { Link } from "react-router-dom";
-import { Card, Col } from 'antd'
-import Recipes from "./Recipes";
+import { Card, Col } from 'antd';
+import Search from "./Search";
 import axios from "axios";
 import african from "../assets/African.jpeg"
 import american from "../assets/american.jpeg"
@@ -22,16 +22,22 @@ import thai from "../assets/thai.jpeg"
 
 
 const Home = () => {
-
     const [data, setData] = useState([])
+    const [searchTerm, setSearchTerm] = useState('');
+    const [filteredData, setFilteredData] = useState(data)
+    const [loading, setLoading] = useState(false);
+
     const gastronomie = [{gast : 'African', img : african}, {gast :'American', img : american }, {gast :'British', img : british},  {gast :'Caribbean', img : carribean},  {gast :'Chinese',  img :chinese }, {gast :'European',  img : european}, {gast :'French',  img : french}, {gast :'Greek', img : greek},  {gast :'Indian',  img : indian}, {gast :'Italian',  img :italian }, {gast :'Japanese', img : japanese}, {gast : 'Mediterranean', img : mediterranean}, {gast :'Mexican', img : mexican}, {gast :'Spanish', img : spanish}, {gast :'Thai', img :thai }]
-    //let { cuisine } = useParams();
+
 
     const fetchRecipe = async () => {
         await axios
-        .get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=322a77ead7154f77b5db10207568287d&number=100`)
+        .get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=d358d93220c74c95902c7672f9ebfdc1&number=10`)
         .then(res => {
             setData(res.data.results)
+            setFilteredData(res.data.results)
+            setLoading(true)
+            console.log(data)
           })
         .catch(err => console.log(err))
       }
@@ -40,6 +46,12 @@ const Home = () => {
         fetchRecipe();
       }, [])
 
+      const dataFiltered = data && data.filter(item => item.title.toLowerCase().includes(searchTerm.toLowerCase()))
+      console.log(dataFiltered)
+
+      const handleSearch = (e) => {
+        setSearchTerm(e.target.value);
+    };
 
   return (
     <>
@@ -51,7 +63,7 @@ const Home = () => {
               return(
               <div className="rond">
               <Link style={{textDecoration:"none", color:"black"}} to={`/${elem.gast.toLowerCase()}`}>
-              <img style={{ height: "100px", width: "100px", borderRadius:"100%"}} src={elem.img} alt="logo"/>
+              <img style={{ height: "100px", width: "100px", borderRadius:"100%", border:"3px solid"}} src={elem.img} alt="logo"/>
               <li>{elem.gast}</li>
               </Link>
               </div>
@@ -61,10 +73,11 @@ const Home = () => {
         </ul>
         </div>
         <div>
-          <Divider><h1>Our Recipes</h1></Divider>
-          <Input style={{width:"90%" , margin:"10px"}} placeholder="Search by Name" type="text"/>
+          <Divider><h1>All Our Recipes</h1></Divider>
+          <Input style={{width:"90%" , margin:"10px"}} placeholder="Search by Name" type="text" onChange={handleSearch}/>
           <div className="recipes">
-          {data.map(elem => {
+          {loading && (
+          dataFiltered.map(elem => {
         return(
           <>
             <Col>
@@ -78,7 +91,7 @@ const Home = () => {
             </Col>
           </>
         )
-       })}
+       }))}
         </div>
         </div>
 

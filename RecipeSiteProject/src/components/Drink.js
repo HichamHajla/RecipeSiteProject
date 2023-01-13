@@ -1,11 +1,7 @@
 
 const Drink = () => {
     return(
-        <>
-        <h1>c'est Drink</h1>
-
-
-        </>
+        <h1>Drinks</h1>
     )
 }
 
